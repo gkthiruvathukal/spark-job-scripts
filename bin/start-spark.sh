@@ -1,21 +1,21 @@
 #! /bin/bash
 
-# %(note)s
+# This script is generated. Do not edit.
 
 if [ -z "${SPARK_HOME}" ]; then
-   export SPARK_HOME=%(spark_home)s
+   export SPARK_HOME=/home/thiruvat/Work/spark
 fi
 
 if [ -z "${SPARK_CONF_DIR}" ]; then
-   export SPARK_CONF_DIR=%(spark_conf_dir)s
+   export SPARK_CONF_DIR=/home/thiruvat/Work/spark/conf
 fi
 
 if [ -z "${SPARK_SLAVES}" ]; then
-   export SPARK_SLAVES=%(spark_slaves)s
+   export SPARK_SLAVES=/home/thiruvat/Work/spark/conf/slaves.${COBALT_JOBID}
 fi
 
 if [ -z "${SPARK_LOG_DIR}" ]; then
-   export SPARK_SLAVES=%(spark_log_dir)s
+   export SPARK_SLAVES=/home/thiruvat/Work/spark/logs
 fi
 
 cp $COBALT_NODEFILE $SPARK_SLAVES
@@ -30,7 +30,7 @@ master=$(hostname)
 num_workers=$(wc -l ${SPARK_SLAVES})
 
 SPARK_JOB_INFO=$HOME/spark-hostname-$COBALT_JOBID
-SPARK_JOB_INFO="%(spark_job_info_file)s"
+SPARK_JOB_INFO="$HOME/spark-hostname-${COBALT_JOBID}.txt"
 
 echo "# Spark is now running with $num_workers workers:" > $SPARK_JOB_INFO
 echo "debug: COBALT_NODEFILE=${COBALT_NODEFILE}" >> $SPARK_JOB_INFO
