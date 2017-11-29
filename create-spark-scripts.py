@@ -36,8 +36,12 @@ def generate_file(filename, env):
     text = text % env
 
     output_path = os.path.join(env['script_install_dir'], script_sh)
+    os.unlink(output_path)
     with open(output_path, "w") as outfile:
        outfile.write(text)
+
+    status = os.stat(output_path)
+    os.chmod(output_path, 0o555)
 
 def process_options():
     args = parse_options()

@@ -29,7 +29,6 @@ echo "Apache Spark Started"
 master=$(hostname)
 num_workers=$(wc -l ${SPARK_SLAVES})
 
-SPARK_JOB_INFO=$HOME/spark-hostname-$COBALT_JOBID
 SPARK_JOB_INFO="%(spark_job_info_file)s"
 
 echo "# Spark is now running with $num_workers workers:" > $SPARK_JOB_INFO
