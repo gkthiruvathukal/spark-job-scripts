@@ -14,9 +14,6 @@ if [ -z "${SPARK_SLAVES}" ]; then
    export SPARK_SLAVES=%(spark_slaves)s
 fi
 
-if [ -z "${SPARK_LOG_DIR}" ]; then
-   export SPARK_SLAVES=%(spark_log_dir)s
-fi
 
 cp $COBALT_NODEFILE $SPARK_SLAVES
 cd $SPARK_HOME
@@ -35,7 +32,6 @@ echo "# Spark is now running with $num_workers workers:" > $SPARK_JOB_INFO
 echo "debug: COBALT_NODEFILE=${COBALT_NODEFILE}" >> $SPARK_JOB_INFO
 echo "debug: SPARK_HOME=${SPARK_HOME}" >> $SPARK_JOB_INFO
 echo "debug: SPARK_CONF_DIR=${SPARK_CONF_DIR}" >> $SPARK_JOB_INFO
-echo "debug: SPARK_LOG_DIR=${SPARK_LOG_DIR}" >> $SPARK_JOB_INFO
 echo "debug: SPARK_SLAVES=${SPARK_SLAVES}" >> $SPARK_JOB_INFO
 echo ""
 echo "export SPARK_STATUS_URL=http://${master}.cooley.pub.alcf.anl.gov:8000" >> $SPARK_JOB_INFO

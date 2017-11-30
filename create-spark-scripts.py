@@ -13,7 +13,6 @@ def parse_options():
     parser = argparse.ArgumentParser()
     parser.add_argument('--spark_home', required=True, help="path to Apache Spark (this must exist)")
     parser.add_argument('--spark_conf_dir', default='%(spark_home)s/conf', help="path to conf dir (vars filled in as a template)")
-    parser.add_argument('--spark_log_dir', default='%(spark_home)s/logs', help="path to logs dir(vars filled in as a template)")
     parser.add_argument('--spark_slaves', default='%(spark_home)s/conf/slaves.${COBALT_JOBID}', help="path to slaves (vars filled in as a template)")
     parser.add_argument('--spark_job_info_file', default='$HOME/spark-hostname-${COBALT_JOBID}.txt',  help="job info file (shared between spark-submit and start-spark)")
     parser.add_argument('--script_install_dir', default=os.path.join(os.getcwd(),"bin"),  help="job info file (shared between spark-submit and start-spark)")

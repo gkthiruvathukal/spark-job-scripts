@@ -14,6 +14,7 @@ nodes=$3
 queue=$4
 
 JOBID=$(qsub -n $nodes -t $time -A $allocation -q ${queue} %(script_install_dir)s/start-spark.sh)
+COBALT_JOBID=$JOBID
 SPARK_JOB_INFO=%(spark_job_info_file)s
 
 rm -f $SPARK_JOB_INFO
